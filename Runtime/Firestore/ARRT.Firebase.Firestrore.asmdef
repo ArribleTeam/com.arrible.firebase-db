@@ -1,0 +1,19 @@
+{
+    "name": "ARRT.Firebase.Firestrore",
+    "references": [],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "iOS"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "USE_FIREBASE_FIRESTORE"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
