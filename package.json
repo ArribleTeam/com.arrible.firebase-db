@@ -1,0 +1,23 @@
+{
+  "name": "com.arrible.firebase-db",
+  "version": "1.0.0",
+  "displayName": "Arrible Firebase DB",
+  "description": "Responsible for the convenient work with data in Firebase.\nWARNING: \nImport the Firebase.Firestore and Firebase.Database plugins before installing the package.",
+  "unity": "2018.3",
+  "keywords": [
+    "firebase",
+    "database",
+    "firestore"
+  ],
+  "bugs": {
+    "url": "https://github.com/IVProject/com.arrible.firebase-db/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:IVProject/com.arrible.firebase-db.git"
+  },
+  "author": {
+    "name": "Arrible",
+    "email": "arribledev@gmail.com"
+  }
+}
