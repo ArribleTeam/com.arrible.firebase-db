@@ -27,36 +27,41 @@ namespace ARRT.Firebase.Database
             };
         }
 
-
-        public static void Fetch(DatabaseReference reference, Action<object> response)
+        public static void Fetch(DatabaseReference reference, Action<ob ject> response, Action error=null)
         {
-            reference.GetValueAsync().ContinueWith((task) =>
-            {
-                var snapshot = task.Result;
-                if(snapshot.Exists)
-                {
-                    response?.Invoke(snapshot.Value);
-                }
-            });
-        }
+           reference.GetValueAsync().ContinueWith((task) =>
+           {  
+               DataSnapshot snapshot = task.Result;
+               if(snapshot.Exists)
+               {
+                   response?.Invoke(snapshot.Value);
+               }
+               else
+               {
+                   Debug.LogWarning("Not snapshot found");
+                   error?.Invoke();
+               }
+           },TaskScheduler.FromCurrentSynchronizationContext());
+           
+       }
 
-        public static void Fetch(string path, Action<object> response)
-        {
-            var reference = database.GetReference(path);
-            Fetch(reference, response);
-        }
+       public static void Fetch(string path, Action<ob ject> response, Action error = null)
+       {
+           var reference = database.GetReference(path);
+           Fetch(reference, response, error);
+       }
 
-        public static void FetchAll(Action<object> response)
-        {
-            referenceRoot.GetValueAsync().ContinueWith((task) =>
-            {
-                var snapshot = task.Result;
-                if (snapshot.Exists)
-                {
-                    response?.Invoke(snapshot.Value);
-                }
-            });
-        }
+       public static void FetchAll(Action<ob ject> response)
+       {
+           referenceRoot.GetValueAsync().ContinueWith((task) =>
+           {
+               var snapshot = task.Result;
+               if (snapshot.Exists)
+               {
+                   response?.Invoke(snapshot.Value);
+               }
+           },TaskScheduler.FromCurrentSynchronizationContext());
+       }
 
         public static void SubscribeToFetch(DatabaseReference reference, Action<object> response)
         {
