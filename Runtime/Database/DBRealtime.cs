@@ -46,13 +46,13 @@ namespace ARRT.Firebase.Database
            
        }
 
-       public static void Fetch(string path, Action<ob ject> response, Action error = null)
+       public static void Fetch(string path, Action<object> response, Action error = null)
        {
            var reference = database.GetReference(path);
            Fetch(reference, response, error);
        }
 
-       public static void FetchAll(Action<ob ject> response)
+       public static void FetchAll(Action<object> response)
        {
            referenceRoot.GetValueAsync().ContinueWith((task) =>
            {
