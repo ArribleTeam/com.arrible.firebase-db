@@ -27,7 +27,7 @@ namespace ARRT.Firebase.Database
             };
         }
 
-        public static void Fetch(DatabaseReference reference, Action<ob ject> response, Action error=null)
+        public static void Fetch(DatabaseReference reference, Action<object> response, Action error=null)
         {
            reference.GetValueAsync().ContinueWith((task) =>
            {  
